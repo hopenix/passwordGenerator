@@ -1,2 +1,2 @@
 # passwordGenerator
-Password Generator Homework
+Hello, This is the readme for my Password Generator Homework project
