@@ -2,10 +2,14 @@ var numChar = ["0","1","2","3","4","5","6","7","8","9"];
 var lowChar = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var upperChar = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","W","Z"];
 var specChar = [ "!","#","$","%","&","(",")","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","`","{","|","}","~"]
+//Test
+console.log(specChar)
 
 //Prompt for password criteria
+function userPasswordCriteria (){
+  var userLength = prompt("Please chose password length of 8 to 128 characters");
 
-
+}
 
 
 
@@ -13,6 +17,7 @@ var specChar = [ "!","#","$","%","&","(",")","*","+","-",".","/",":",";","<","="
 
 
 // Prewritten Assignment Code
+//References element
 var generateBtn = document.querySelector("#generate");
 
 
