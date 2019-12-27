@@ -11,10 +11,6 @@ var masterarray=[];
 //   var userLength = prompt("Please chose password length of 8 to 128 characters");
 // }
 
-
-//References element(this line of code was allready in JS file for assignment)
-var generateBtn = document.querySelector("#generate");
-
 //this will be creating specific password
 function generatePassword(){
 	//ask for length; 8-128 (prompt for length)
@@ -37,14 +33,14 @@ function generatePassword(){
 	var isUpperCase = confirm("Do you want uppercase in your pw?");
 	//ask for isSpecChar (return true or false)
 	var isSpecChar = confirm("Do you want special characters in your pw?");
-	//validate at least one char chosen
+	//validate at least one char type chosen
 	if (
 		isnumchar === false &&
 		isLowChar === false &&
 		isUpperCase === false &&
 		isSpecChar === false
 	) {
-		alert("Please chose a character type for your pw");
+		alert("Please chose at least one character type for your pw");
 		return;
 	}
 	//each if cond is creating the masterarray
@@ -77,17 +73,20 @@ function generatePassword(){
 //call generatePassword function
 generatePassword();
 
+
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
+var copyBtn = document.querySelector("#copy");
+
 // Write password to the #password input
 function writePassword() {
-	//create password by calling a fx generatePassword();
   var password = generatePassword();
-  //this is a location for the password to show via frontend
   var passwordText = document.querySelector("#password");
-  //stick your generated pw to frontend input area
+
   passwordText.value = password;
 
-  copyBtn.removeAttribute("disabled");
-  copyBtn.focus();
+  //copyBtn.removeAttribute("disabled");
+  //copyBtn.focus();
 }
 
 function copyToClipboard() {
