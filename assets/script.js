@@ -3,7 +3,8 @@ var lowChar = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","
 var upperChar = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","W","Z"];
 var specChar = [ "!","#","$","%","&","(",")","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","`","{","|","}","~"]
 //Test
-console.log(specChar)
+//console.log(specChar)
+var masterarray=[];
 
 //Prompt for password criteria
 function userPasswordCriteria (){
@@ -20,12 +21,54 @@ function userPasswordCriteria (){
 //References element
 var generateBtn = document.querySelector("#generate");
 
+//this will be creating your specific password
+function generatePassword(){
+	//ask for length; 8-128 (prompt for length)
+	 var userLength = prompt("Please chose password length of 8 to 128 characters");
+	 //check if it is a num, if not, ask again
+	//  if(typeof(parseInt(userLength))!=number){
+	//  	userLength = prompt("Please chose password length of 8 to 128 characters");
+	//  }
+
+	//ask for isnumchar (return true or false)
+	 var isnumchar = confirm("Do you want numbers in your pw");
+
+	//ask for isuppserChar (return true or false)
+	var isuppserChar = confirm("Do you want uppercase in your pw");
+
+	//ask for isspecialChar (return true or false)
+
+	//each if cond is creating the masterarray
+	if(isnumchar){
+		masterarray.push(numChar)
+	}
+	if(isuppserChar){
+		masterarray.push(upperChar)
+	}
+	console.log(masterarray)
+	var temp;
+	//run a forloop to pick out random values from the masterarray
+	for(var i=0; i<userLength;i++){
+		//temp =//masterarray[0]
+		temp=(masterarray[Math.floor(Math.random() * (masterarray.length-1 - 0 + 1)) + 0]);
+			//Math.floor(Math.random() * (userLength-1 - 0) + 0));
+			//masterarray[0][0]
+			console.log(temp[Math.floor(Math.random() * (temp.length-1 - 0 + 1)) + 0])
+	}
+	//return "test";
+	//masterarray[0][Math.floor(Math.random() * (temp.length-1 - 0 + 1)) + 0]
+
+}
+
+generatePassword();
 
 // Write password to the #password input
 function writePassword() {
+	//create password by calling a fx generatePassword();
   var password = generatePassword();
+  //this is a location for the password to show via frontend
   var passwordText = document.querySelector("#password");
-
+  //stick your generated pw to frontend input area
   passwordText.value = password;
 
   copyBtn.removeAttribute("disabled");
