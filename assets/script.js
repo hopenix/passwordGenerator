@@ -7,21 +7,15 @@ var specChar = [ "!","#","$","%","&","(",")","*","+","-",".","/",":",";","<","="
 var masterarray=[];
 
 //Prompt for password criteria
-function userPasswordCriteria (){
-  var userLength = prompt("Please chose password length of 8 to 128 characters");
-
-}
-
+// function userPasswordCriteria (){
+//   var userLength = prompt("Please chose password length of 8 to 128 characters");
+// }
 
 
-
-
-
-// Prewritten Assignment Code
 //References element
 var generateBtn = document.querySelector("#generate");
 
-//this will be creating your specific password
+//this will be creating specific password
 function generatePassword(){
 	//ask for length; 8-128 (prompt for length)
 	 var userLength = prompt("Please chose password length of 8 to 128 characters");
@@ -31,19 +25,27 @@ function generatePassword(){
 	//  }
 
 	//ask for isnumchar (return true or false)
-	 var isnumchar = confirm("Do you want numbers in your pw");
+	 var isnumchar = confirm("Do you want numbers in your pw?");
 
-	//ask for isuppserChar (return true or false)
-	var isuppserChar = confirm("Do you want uppercase in your pw");
+	//ask for isLowChar (return true or false)
+	var isLowChar = confirm("Do you want lowercase in your pw?");
 
-	//ask for isspecialChar (return true or false)
-
+	//ask for isUpperCase (return true or false)
+	var isUpperCase = confirm("Do you want uppercase in your pw?")
+	//ask for isSpecChar (return true or false)
+	var isSpecChar = confirm("Do you want special characters in your pw?")
 	//each if cond is creating the masterarray
 	if(isnumchar){
 		masterarray.push(numChar)
 	}
-	if(isuppserChar){
+	if(isLowChar){
+		masterarray.push(lowChar)
+	}
+	if(isUpperCase){
 		masterarray.push(upperChar)
+	}
+	if(isSpecChar){
+		masterarray.push(specChar)
 	}
 	console.log(masterarray)
 	var temp;
