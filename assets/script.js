@@ -12,28 +12,41 @@ var masterarray=[];
 // }
 
 
-//References element
+//References element(this line of code was allready in JS file for assignment)
 var generateBtn = document.querySelector("#generate");
 
 //this will be creating specific password
 function generatePassword(){
 	//ask for length; 8-128 (prompt for length)
 	 var userLength = prompt("Please chose password length of 8 to 128 characters");
-	 //check if it is a num, if not, ask again
-	//  if(typeof(parseInt(userLength))!=number){
-	//  	userLength = prompt("Please chose password length of 8 to 128 characters");
-	//  }
+	//validate length
+	if(userLength < 8) {
+		alert("Must be more than 8 characters");
+		return;
+	}
+	if(userLength > 128) {
+		alert("Must be less than 128 characters");
+		return;
+	}
 
 	//ask for isnumchar (return true or false)
-	 var isnumchar = confirm("Do you want numbers in your pw?");
-
+	var isnumchar = confirm("Do you want numbers in your pw?");
 	//ask for isLowChar (return true or false)
 	var isLowChar = confirm("Do you want lowercase in your pw?");
-
 	//ask for isUpperCase (return true or false)
-	var isUpperCase = confirm("Do you want uppercase in your pw?")
+	var isUpperCase = confirm("Do you want uppercase in your pw?");
 	//ask for isSpecChar (return true or false)
-	var isSpecChar = confirm("Do you want special characters in your pw?")
+	var isSpecChar = confirm("Do you want special characters in your pw?");
+	//validate at least one char chosen
+	if (
+		isnumchar === false &&
+		isLowChar === false &&
+		isUpperCase === false &&
+		isSpecChar === false
+	) {
+		alert("Please chose a character type for your pw");
+		return;
+	}
 	//each if cond is creating the masterarray
 	if(isnumchar){
 		masterarray.push(numChar)
@@ -61,7 +74,7 @@ function generatePassword(){
 	//masterarray[0][Math.floor(Math.random() * (temp.length-1 - 0 + 1)) + 0]
 
 }
-
+//call generatePassword function
 generatePassword();
 
 // Write password to the #password input
